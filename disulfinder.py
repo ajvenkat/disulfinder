@@ -8,45 +8,45 @@ from pymol import cmd, stored
 import time
 import networkx as nx
 
-def compute_energy(chi1_i, chi1_j, theta_i, theta_j, chi3):
-	# resnum_i_pymol_prefix = "/" + pdb + "///" + resnum_i + "/"
-	# resnum_j_pymol_prefix = "/" + pdb + "///" + resnum_j + "/"
+# def compute_energy(chi1_i, chi1_j, theta_i, theta_j, chi3):
+# 	# resnum_i_pymol_prefix = "/" + pdb + "///" + resnum_i + "/"
+# 	# resnum_j_pymol_prefix = "/" + pdb + "///" + resnum_j + "/"
 
-	# chi1_i = cmd.get_dihedral(resnum_i_pymol_prefix + "N", resnum_i_pymol_prefix + "CA", resnum_i_pymol_prefix + "CB", resnum_i_pymol_prefix + "SG")
-	# theta_i = cmd.get_angle(resnum_i_pymol_prefix + "CA", resnum_i_pymol_prefix + "CB", resnum_i_pymol_prefix + "SG")
+# 	# chi1_i = cmd.get_dihedral(resnum_i_pymol_prefix + "N", resnum_i_pymol_prefix + "CA", resnum_i_pymol_prefix + "CB", resnum_i_pymol_prefix + "SG")
+# 	# theta_i = cmd.get_angle(resnum_i_pymol_prefix + "CA", resnum_i_pymol_prefix + "CB", resnum_i_pymol_prefix + "SG")
 
-	# chi1_j = cmd.get_dihedral(resnum_j_pymol_prefix + "N", resnum_j_pymol_prefix + "CA", resnum_j_pymol_prefix + "CB", resnum_j_pymol_prefix + "SG")
-	# theta_j = cmd.get_angle(resnum_j_pymol_prefix + "CA", resnum_j_pymol_prefix + "CB", resnum_j_pymol_prefix + "SG")
+# 	# chi1_j = cmd.get_dihedral(resnum_j_pymol_prefix + "N", resnum_j_pymol_prefix + "CA", resnum_j_pymol_prefix + "CB", resnum_j_pymol_prefix + "SG")
+# 	# theta_j = cmd.get_angle(resnum_j_pymol_prefix + "CA", resnum_j_pymol_prefix + "CB", resnum_j_pymol_prefix + "SG")
 
-	# chi3 = cmd.get_dihedral(resnum_i_pymol_prefix + "CB", resnum_i_pymol_prefix + "SG", resnum_j_pymol_prefix + "SG", resnum_j_pymol_prefix + "CB")
+# 	# chi3 = cmd.get_dihedral(resnum_i_pymol_prefix + "CB", resnum_i_pymol_prefix + "SG", resnum_j_pymol_prefix + "SG", resnum_j_pymol_prefix + "CB")
 
-	E_chi1_i = 1.4 * (1 + cos (3 * chi1_i))
-	E_theta_i = 55.0 * (theta_i - 114.6)**2
-	E_chi1_j = 1.4 * (1 + cos (3 * chi1_j))
-	E_theta_j = 55.0 * (theta_j - 114.6)**2
-	E_chi3 = 4.0 * (1 - cos((2 * chi3) + 160))
+# 	E_chi1_i = 1.4 * (1 + cos (3 * chi1_i))
+# 	E_theta_i = 55.0 * (theta_i - 114.6)**2
+# 	E_chi1_j = 1.4 * (1 + cos (3 * chi1_j))
+# 	E_theta_j = 55.0 * (theta_j - 114.6)**2
+# 	E_chi3 = 4.0 * (1 - cos((2 * chi3) + 160))
 
-	Energy = E_chi1_i + E_theta_i + E_chi1_j + E_theta_j + E_chi3
+# 	Energy = E_chi1_i + E_theta_i + E_chi1_j + E_theta_j + E_chi3
 
-	return Energy
+# 	return Energy
 
-# def mutate_to_cys(pdb, resnum_i):
-# 	selection_i = "resi " + str(resnum_i)
-# 	cmd.wizard("mutagenesis")
+# # def mutate_to_cys(pdb, resnum_i):
+# # 	selection_i = "resi " + str(resnum_i)
+# # 	cmd.wizard("mutagenesis")
 
-# 	cmd.get_wizard().set_mode("CYS")
+# # 	cmd.get_wizard().set_mode("CYS")
 
-# 	cmd.do("refresh_wizard")
+# # 	cmd.do("refresh_wizard")
 
-# 	cmd.get_wizard().do_select(selection_i)
-# 	cmd.get_wizard().do_select(selection_i)
+# # 	cmd.get_wizard().do_select(selection_i)
+# # 	cmd.get_wizard().do_select(selection_i)
 
-# 	for frame_i in [1, 2, 3]:
-# 		cmd.frame(frame_i)
-# 		cmd.create("rotamer_" + str(resnum_i) + "_" + str(frame_i), "mutation", frame_i, 1)
-# 		rotamer_i_pymol_prefix = "/" + "rotamer_" + str(resnum_i) + "_" + str(frame_i) + "///" + resnum_i + "/"
+# # 	for frame_i in [1, 2, 3]:
+# # 		cmd.frame(frame_i)
+# # 		cmd.create("rotamer_" + str(resnum_i) + "_" + str(frame_i), "mutation", frame_i, 1)
+# # 		rotamer_i_pymol_prefix = "/" + "rotamer_" + str(resnum_i) + "_" + str(frame_i) + "///" + resnum_i + "/"
 
-# 	cmd.set_wizard("done")
+# # 	cmd.set_wizard("done")
 
 def mutate_to_cys(pdb, resnum_i):
 	selection_i = "resi " + str(resnum_i)
