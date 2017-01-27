@@ -6,7 +6,9 @@ import pymol
 from math import cos
 from pymol import cmd, stored
 import time
-import networkx as nx
+import networkx as 
+
+## Git test
 
 # def compute_energy(chi1_i, chi1_j, theta_i, theta_j, chi3):
 # 	# resnum_i_pymol_prefix = "/" + pdb + "///" + resnum_i + "/"
